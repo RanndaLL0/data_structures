@@ -2,9 +2,11 @@
 #include <stdio.h>
 #include "linked_list.h"
 
+
+
 /*
  *      PRIVATE MEMBERS
- *
+ *      (auxiliar functions)
  * */
 
 struct Node *create_node_ll(void *data, unsigned long dataSize);
@@ -12,7 +14,7 @@ struct Node *destroy_node_ll(struct Node *node);
 
 /* 
  *      PROTOTYPES
- *
+ *      (definitions)
  * */
 
 struct Node* iterate_ll(struct linked_list *list, int index);

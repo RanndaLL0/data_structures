@@ -2,6 +2,11 @@
 #define linked_list_h
 
         #include "../nodes/node.h"
+        
+        /*
+         *The "compare" function will be used to perform 
+         *comparisons between the data in the structure.
+         * */
 
         struct linked_list {
 
