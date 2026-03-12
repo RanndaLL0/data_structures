@@ -78,3 +78,25 @@ void recursive_tree_destruction(struct Node *node) {
         }
         destroy_node(node);
 }
+
+void insert_bst(struct binary_search_tree *tree, void *data, unsigned long data_size) {
+        
+        if (!tree->head) {
+                tree->head = create_node_bst(data,data_size);
+        }
+        else {
+                int direction = 0;        
+                struct Node *element = iterate_bst(tree, tree->head, data, &direction);
+
+                if (direction == 1) {
+                        element->next = create_node_bst(data, data_size);
+                } else {
+                        element->previous = create_node_bst(data, data_size);
+                }
+        }
+}
+
+
+
+
+
