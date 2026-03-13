@@ -1,26 +1,23 @@
 #ifndef DICT_H
 #define DICT_H
 
-#include "../nodes/node.h"
+        #include "entry.h"
+        #include "../trees/tree.h"
+        #include "../linked_list/linked_list.h"
 
-struct binary_search_tree {
+        struct dictionary {
 
-  struct Node *head;
+                struct binary_search_tree binary_search_tree;
+                struct linked_list keys;
 
-  int (*compare)(void *data_one, void *data_two);
-  void *(*search)(struct binary_search_tree *tree, void *data);
-  void (*insert)(struct binary_search_tree *tree, void *data,
-                 unsigned long data_size);
-};
+                void (* insert)(struct dictionary *dictionary, void *key, unsigned long key_size, void *value, unsigned long value_size);
+                void * (* search)(struct dictionary *dictionary, void *key, unsigned long key_size);
+        };
 
-struct binary_search_tree
-binary_search_tree_constructor(int (*compare)(void *data_one, void *data_two));
-void binary_search_tree_destructor(
-    struct binary_search_tree binary_search_tree);
+        struct dictionary dictionary_constructor(int (*compare)(void *entry_one, void *entry_two));
+        void dictionary_destructor(struct dictionary *dictionary);
 
-int binary_search_tree_int_compare(void *data_one, void *data_two);
-int binary_search_tree_float_compare(void *data_one, void *data_two);
-int binary_search_tree_char_compare(void *data_one, void *data_two);
-int binary_search_tree_str_compare(void *data_one, void *data_two);
+        int compare_string_keys(void *entry_one, void *entry_two);
 
-#endif // !DEBUG
+#endif // !DICT_H
+
