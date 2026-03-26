@@ -5,7 +5,7 @@
 
 struct Node node_constructor(void *data, unsigned long dataSize) {
 
-        if (dataSize < 0) {
+        if (dataSize < 1) {
                 printf("Invalid dataSize for the Node");
                 exit(1);
         }
