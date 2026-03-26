@@ -4,7 +4,7 @@
 #include <string.h>
 
 struct Node *create_node_bst(void *data, unsigned long data_size);
-void destroy_node(struct Node *node_to_destroy);
+void destroy_node_bst(struct Node *node_to_destroy);
 struct Node *iterate_bst(struct binary_search_tree *binary_search_tree,struct Node *element, void *data, int *direction);
 void recursive_tree_destruction(struct Node *node_to_destroy);
 
@@ -65,12 +65,30 @@ struct Node *iterate_bst(struct binary_search_tree *tree, struct Node *element,v
 }
 
 void recursive_tree_destruction(struct Node *node) {
-        if (node->previous) {
+        if (node->previous)
+        {
                 recursive_tree_destruction(node->previous);
-        } else {
+        } 
+        if (node->next)
+        {
                 recursive_tree_destruction(node->next);
         }
-        destroy_node(node);
+        destroy_node_bst(node);
+}
+
+void * search_bst(struct binary_search_tree *tree, void *data)
+{
+        int direction = 0;
+        struct Node *cursor = iterate_bst(tree, tree->head, data, &direction);
+
+        if (direction == 0)
+        {
+                return cursor->data;
+        }
+        else
+        {
+                return NULL;
+        }
 }
 
 void insert_bst(struct binary_search_tree *tree, void *data,unsigned long data_size) {

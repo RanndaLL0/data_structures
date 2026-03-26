@@ -10,7 +10,7 @@
  * */
 
 struct Node *create_node_ll(void *data, unsigned long dataSize);
-struct Node *destroy_node_ll(struct Node *node);
+void destroy_node_ll(struct Node *node);
 
 /* 
  *      PROTOTYPES
@@ -25,7 +25,7 @@ void bubble_sort_ll(struct linked_list *list, int (* compare)(void *a, void *b))
 short binary_search_ll(struct linked_list *list, void *query, int (*compare)(void *a, void *b));
 
 struct linked_list linked_list_constructor() {
-        struct linked_list newList; 
+        struct linked_list newList;
 
         newList.head = NULL;
         newList.length = 0;
@@ -51,7 +51,7 @@ struct Node* create_node_ll(void *data, unsigned long dataSize) {
         return newNode;
 }
 
-void node_destructor(struct Node *node) {
+void destroy_node_ll(struct Node *node) {
         node_destructor(node);
 }
 

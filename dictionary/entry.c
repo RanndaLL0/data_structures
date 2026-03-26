@@ -16,7 +16,7 @@ struct entry entry_constructor(void *key , unsigned long key_size, void *value, 
         return entry;
 }
 
-void entry_desctructor(struct entry *entry) {
+void entry_destructor(struct entry *entry) {
         free(entry->key);
         free(entry->value);
         free(entry);

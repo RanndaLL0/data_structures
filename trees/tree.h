@@ -1,5 +1,5 @@
-#ifndef DICT_H
-#define DICT_H
+#ifndef TREE_H 
+#define TREE_H
 
 #include "../nodes/node.h"
 
